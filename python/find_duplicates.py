@@ -1,12 +1,13 @@
 def find_duplicates_nested_loop(l: list) -> list:
 	new_list = []
-	l.sort()
 	seen = set()
-	for i in range(len(l)-1):
-		if l[i] == l[i+1]:
-			if l[i] not in seen:
-				new_list.append(l[i])
-				seen.add(l[i])
+	
+	for i in range(len(l)):
+		for j in range(len(l)):
+			if l[i] == l[j] and j != i:
+				if l[i] not in seen:
+					new_list.append(l[i])
+					seen.add(l[i])
 	return new_list
 
 # In Python, if __name__ == "__main__" is a conditional check that determines whether 
